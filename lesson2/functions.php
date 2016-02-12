@@ -6,3 +6,5 @@
 function sum() {
     echo 2 + 2;
 }
+
+sum();
