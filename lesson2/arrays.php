@@ -17,7 +17,7 @@ var_dump($arr);
 
 echo '<br> Array size:' . count($arr) . '<br>';
 
-// Àññîöèàòèâíûå ìàññèâû
+// ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ð°ÑÑÐ¾Ñ†Ð¸Ð°Ñ‚Ð¸Ð½Ð¾Ð³Ð¾ Ð¼Ð°ÑÑÐ¸Ð²Ð°
 $assoc = [
     'color' => 'green',
     'fruit' => 'apple'
