@@ -1,11 +1,14 @@
 <?php
+
 /**
  * @author Gutsulyak Vadim <guts.vadim@gmail.com>
+ * @param $a
+ * @param $b
  */
-
-
 function sum($a, $b) {
-    echo $a + $b;
+    return $a + $b;
 }
 
-sum(19, 5);
+$result  = sum(19, 8);
+echo sum(19, 8);
+
