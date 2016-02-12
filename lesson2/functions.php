@@ -3,8 +3,9 @@
  * @author Gutsulyak Vadim <guts.vadim@gmail.com>
  */
 
-function sum() {
-    echo 2 + 2;
+
+function sum($a, $b) {
+    echo $a + $b;
 }
 
-sum();
+sum(19, 5);
