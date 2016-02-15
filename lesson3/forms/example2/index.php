@@ -1,9 +1,21 @@
 <?
 
 if(isset($_POST['operation'])) {
+    $errors = [];
     $operation = $_POST['operation'];
-    $var1 = $_POST['var1'];
-    $var2 = $_POST['var2'];
+
+    if(!empty($_POST['var1'])) {
+        $var1 = $_POST['var1'];
+    }
+    else {
+        $errors[] = 'Variable 1 can\'t be blank';
+    }
+    if(!empty($_POST['var2'])) {
+        $var2 = $_POST['var2'];
+    }
+    else {
+        $errors[] = 'Variable 2 can\'t be blank';
+    }
 
     switch($operation) {
         case '+': {
@@ -51,3 +63,9 @@ if(isset($_POST['operation'])) {
     <input type="submit" value="=">
     <?=$result?>
 </form>
+
+<? foreach($errors as $err) { ?>
+    <div style="color:red">
+        <?=$err?>
+    </div>
+<? } ?>
