@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="sum.php">
+<form action="sum.php" method="GET">
     <input type="number" name="var1"> <br><br>
     <input type="number" name="var2"> <br><br>
 
