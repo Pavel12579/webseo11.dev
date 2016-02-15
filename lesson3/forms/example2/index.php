@@ -29,16 +29,24 @@ if(isset($_POST['operation'])) {
 
 
 <form action="" method="post">
-    <input type="number" name="var1">
+    <input type="number" name="var1" value="<?=$var1?>">
 
     <select name="operation">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="/">/</option>
+        <option value="+" <? if($operation == '+') echo 'selected'; ?>>
+            +
+        </option>
+        <option value="-" <? if($operation == '-') echo 'selected'; ?>>
+            -
+        </option>
+        <option value="*" <? if($operation == '*') echo 'selected'; ?>>
+            *
+        </option>
+        <option value="/" <? if($operation == '/') echo 'selected'; ?>>
+            /
+        </option>
     </select>
 
-    <input type="number" name="var2">
+    <input type="number" name="var2" value="<?=$var2?>">
 
     <input type="submit" value="=">
     <?=$result?>
