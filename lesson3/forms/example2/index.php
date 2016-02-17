@@ -7,21 +7,21 @@ if(isset($_POST['operation'])) {
     if(!empty($_POST['var1'])) {
         $var1 = $_POST['var1'];
         if(!is_numeric($var1)) {
-            $errors[] = 'Variable 1 must be a number';
+            $errors['var1'] = 'Variable 1 must be a number';
         }
     }
     else {
-        $errors[] = 'Variable 1 can\'t be blank';
+        $errors['var1'] = 'Variable 1 can\'t be blank';
     }
 
     if(!empty($_POST['var2'])) {
         $var2 = $_POST['var2'];
         if(!is_numeric($var2)) {
-            $errors[] = 'Variable 2 must be a number';
+            $errors['var2'] = 'Variable 2 must be a number';
         }
     }
     else {
-        $errors[] = 'Variable 2 can\'t be blank';
+        $errors['var2'] = 'Variable 2 can\'t be blank';
     }
 
     if(empty($errors)) {
@@ -42,6 +42,9 @@ if(isset($_POST['operation'])) {
                 $result = $var1 / $var2;
                 break;
             }
+            default: {
+
+            }
         }
     }
 
@@ -49,11 +52,17 @@ if(isset($_POST['operation'])) {
 
 ?>
 
+<style>
+    .error {
+        border: 1px solid red;
+        background-color: rgba(255, 0, 0, 0.22);
+    }
+</style>
 
 <form action="" method="post">
-    <input type="text" name="var1" value="<?=$var1?>">
+    <input class="<?= array_key_exists('var1', $errors) ? 'error ' : '' ?>" type="text" name="var1" value="<?=$var1?>">
 
-    <select name="operation">
+    <select class="<?= array_key_exists('operation', $errors) ? 'error ' : '' ?>" name="operation">
         <option value="+" <? if($operation == '+') echo 'selected'; ?>>
             +
         </option>
@@ -68,7 +77,7 @@ if(isset($_POST['operation'])) {
         </option>
     </select>
 
-    <input type="number" name="var2" value="<?=$var2?>">
+    <input class="<?= array_key_exists('var2', $errors) ? 'error ' : '' ?>" type="number" name="var2" value="<?=$var2?>">
 
     <input type="submit" value="=">
     <?=$result?>
